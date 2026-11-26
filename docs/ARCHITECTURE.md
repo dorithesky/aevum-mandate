@@ -91,7 +91,7 @@ same in the UI, in the agent log and on chain.
 | `agent/mandate/invoices.py` | EIP-712 invoices and the preflight mirror |
 | `agent/mandate/cli.py` | deploy, setup, issue invoices, run the agent |
 | `server/app.py` | local demo API (`/api/state`, `/api/run/<case>`) |
-| `web/` | static desk: recorded run by default, live chain reads via ethers |
+| `web/` | static desk: recorded run by default, live chain reads over JSON-RPC |
 
 ## Test strategy
 

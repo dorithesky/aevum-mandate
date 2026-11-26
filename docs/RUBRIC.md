@@ -64,8 +64,8 @@ answered, so a judge can check rather than hunt.
   receipt waiting with a timeout (`agent/mandate/chain.py`).
 * Real tUSD8 on Aevum Testnet: deploys, payments, refusals and approvals are
   transactions, not a fork.
-* Read-only browser integration via ethers v6 against `rpc-test.qday.info`, so
-  the published page shows live state without a backend.
+* Read-only browser integration over JSON-RPC against `rpc-test.qday.info`, so
+  the published page shows live state without a backend or a wallet.
 
 ## 6. Real-world utility and market potential — 15
 

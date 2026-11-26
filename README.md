@@ -176,7 +176,7 @@ over RPC, so the numbers are real even without a server.
 contracts/            MandateAccount.sol + 26 Foundry tests (forge-std vendored)
 agent/mandate/        JSON-RPC client, EIP-712 invoices, policy mirror, CLI
 server/app.py         local demo API (stdlib http.server, no framework)
-web/                  static desk: recorded run, live ethers reads, replay
+web/                  static desk: recorded run, live JSON-RPC reads, replay
 invoices/             four signed demo invoices (public signatures only)
 docs/                 ARCHITECTURE, SECURITY, EVIDENCE, RUBRIC, DEMO script
 scripts/local_e2e.py  anvil rehearsal of the full flow

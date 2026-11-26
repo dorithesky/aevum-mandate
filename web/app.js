@@ -71,7 +71,7 @@ function renderStats() {
     <div class="stat ok">
       <div class="label">Mandate balance</div>
       <div class="value" data-live="balance">${fmt(m.balance)}<small>tUSD8</small></div>
-      <div class="sub">held by the contract, not the agent</div>
+      <div class="sub" id="remainingChip">held by the contract, not the agent</div>
     </div>
     <div class="stat">
       <div class="label">Spent today</div>
@@ -274,21 +274,35 @@ async function runLive(caseId, approve) {
   }
 }
 
-/* Read live balances straight from Aevum when the page is hosted statically. */
+/* Read live state straight from Aevum with plain JSON-RPC (no wallet, no library). */
+async function rpc(method, params) {
+  const res = await fetch(S.data.network.rpc, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
+  });
+  const body = await res.json();
+  if (body.error) throw new Error(body.error.message || "rpc error");
+  return body.result;
+}
+
 async function liveProbe() {
   const m = S.data.mandate;
+  const pad = (addr) => addr.toLowerCase().replace(/^0x/, "").padStart(64, "0");
   try {
-    if (!window.ethers) return;
-    const provider = new ethers.JsonRpcProvider(S.data.network.rpc, 44005, { staticNetwork: true });
-    const token = new ethers.Contract(m.token, ["function balanceOf(address) view returns (uint256)"], provider);
-    const mandate = new ethers.Contract(m.address, ["function remainingToday() view returns (uint256)"], provider);
-    const [bal] = await Promise.all([token.balanceOf(m.address), mandate.remainingToday()]);
+    const [bal, remaining] = await Promise.all([
+      rpc("eth_call", [{ to: m.token, data: "0x70a08231" + pad(m.address) }, "latest"]),
+      rpc("eth_call", [{ to: m.address, data: "0xfc3c5515" }, "latest"]),
+    ]);
     const el = document.querySelector('[data-live="balance"]');
-    if (el) el.innerHTML = `${fmt(bal.toString())}<small>tUSD8</small>`;
+    if (el) el.innerHTML = `${fmt(parseInt(bal, 16))}<small>tUSD8</small>`;
+    const chip = $("#remainingChip");
+    if (chip) chip.textContent = `${fmt(parseInt(remaining, 16))} tUSD8 left today · live`;
     $("#liveBadge").textContent = "live · Aevum RPC";
     $("#liveBadge").classList.add("live");
   } catch (err) {
-    $("#liveBadge").textContent = "recorded run";
+    const el = document.querySelector('[data-live="balance"]');
+    if (el) el.title = "live read failed: " + err.message;
   }
 }
 

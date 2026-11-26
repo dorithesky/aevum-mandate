@@ -57,7 +57,7 @@ that holds the company's tUSD8 and enforces the payment policy on chain.
 
 Solidity 0.8.24 (Shanghai) · Foundry (26 tests) · Python agent (JSON-RPC +
 EIP-1559, eth-account, no web3) · stdlib HTTP demo API · static desk with
-ethers v6 · GitHub Pages · tUSD8 on QDay Aevum Testnet (chain 44005).
+plain JSON-RPC · GitHub Pages · tUSD8 on QDay Aevum Testnet (chain 44005).
 
 ### What is live on Aevum
 
