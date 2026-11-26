@@ -26,6 +26,7 @@ codes as payments, so the audit trail covers what the agent declined.
 | Paid | 1.20 tUSD8 automatically + 3.50 tUSD8 with the owner's co-signature |
 | Refused on chain | lookalike wallet (1.20), prompt-injection invoice (4.00), replay (1.20) |
 | Mandate now | 0.30 tUSD8 left of a 5.00 daily cap, 4.70 spent today |
+| Source | verified on the QDay explorer ([Blockscout](https://explorer-test.qday.info/address/0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63?tab=contract), solc 0.8.24) |
 | Evidence | [`docs/EVIDENCE.md`](docs/EVIDENCE.md) — every transaction, generated from the chain |
 
 Settled:

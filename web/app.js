@@ -177,11 +177,19 @@ function renderPanel(animate = false) {
   }
   const st = STATUS[c.status] || STATUS.pending;
   const dec = c.decision || { checks: [], decision: "pending", reasonLabel: "PENDING" };
-  const verdict = {
+  const base = {
     pay: { cls: "pay", glyph: "✓", big: "Inside the mandate", small: "The agent can settle this invoice without asking." },
     needs_approval: { cls: "needs_approval", glyph: "!", big: "Owner approval required", small: `${fmt(c.amount * 1e6)} is above the ${fmt(S.data.mandate.policy.approvalThreshold)} approval line.` },
     refuse: { cls: "refuse", glyph: "✕", big: "Refused by the agent", small: REASONS[dec.reason] || dec.reasonLabel },
   }[dec.decision] || { cls: "needs_approval", glyph: "·", big: "Not processed", small: "" };
+  let verdict = base;
+  if (c.status === "settled" && dec.outcome === "owner_approved") {
+    verdict = { cls: "pay", glyph: "✓", big: "Owner co-signed — settled",
+      small: `The contract verified the owner's signature over this exact invoice, then paid ${fmt(c.amount * 1e6)} tUSD8.` };
+  } else if (c.status === "settled") {
+    verdict = { cls: "pay", glyph: "✓", big: "Inside the mandate — settled",
+      small: "Every rule passed, so the agent paid without asking." };
+  }
 
   panel.innerHTML = `
     <div class="agent-head">
@@ -214,7 +222,7 @@ function renderPanel(animate = false) {
     </div>`;
 
   const showVerdict = () => {
-    $("#verdict").innerHTML = dec.decision === "pending" ? "" : `
+    $("#verdict").innerHTML = dec.decision === "pending" && c.status === "pending" ? "" : `
       <div class="decision ${verdict.cls}">
         <span class="glyph">${verdict.glyph}</span>
         <div><div class="big">${verdict.big}</div><div class="small">${esc(verdict.small)}</div></div>

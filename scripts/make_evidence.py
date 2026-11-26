@@ -36,6 +36,7 @@ def main() -> int:
         f"| MandateAccount | [`{m['address']}`]({EXPLORER}/address/{m['address']}) |",
         f"| Deploy transaction | [`{dep.get('deployTx')}`]({EXPLORER}/tx/{dep.get('deployTx')}) |",
         f"| Deploy block | {dep.get('deployBlock')} (gas {dep.get('deployGasUsed')}) |",
+        f"| Verified source | [`MandateAccount.sol` on the explorer]({EXPLORER}/address/{m['address']}?tab=contract) (Blockscout, solc 0.8.24) |",
         f"| tUSD8 | [`{m['token']}`]({EXPLORER}/address/{m['token']}) |",
         f"| Owner (human) | `{to_checksum_address(m['owner'])}` |",
         f"| Agent (hot key) | `{to_checksum_address(m['agent'])}` |",
