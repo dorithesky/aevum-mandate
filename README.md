@@ -10,11 +10,33 @@ signature above a threshold. Refusals are written on chain with the same reason
 codes as payments, so the audit trail covers what the agent declined.
 
 * **Desk (live, static + on-chain reads):** https://dorithesky.github.io/aevum-mandate/
-* **Contract:** <!-- CONTRACT_LINK -->
-* **Demo video:** <!-- VIDEO_LINK -->
+* **Contract:** [`0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63`](https://explorer-test.qday.info/address/0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63) on QDay Aevum Testnet
+* **Demo video:** [mandate-demo.mp4](https://dorithesky.github.io/aevum-mandate/demo/out/mandate-demo.mp4)
 * **Repository:** https://github.com/dorithesky/aevum-mandate
 
-<!-- DEPLOY_TABLE -->
+## Live on Aevum Testnet
+
+| | |
+| --- | --- |
+| MandateAccount | [`0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63`](https://explorer-test.qday.info/address/0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63) |
+| Deploy transaction | [`0xb60375a6…3406bf`](https://explorer-test.qday.info/tx/0xb60375a678d2bab243d9b04f836f258dd14aab28b1f6dcdf9684cb4fc23406bf) (block 4,210,560, 1,421,097 gas) |
+| tUSD8 | [`0x456569838f1d43009a91eba4263147afd7233483`](https://explorer-test.qday.info/address/0x456569838f1d43009a91eba4263147afd7233483) |
+| Owner (human) | `0xf462E0E9525AEAA4298344F55FB75D41a9d90189` |
+| Agent (hot key) | `0xa28bfc39ac193ff33a201086B81Fb10da4B08c75` |
+| Paid | 1.20 tUSD8 automatically + 3.50 tUSD8 with the owner's co-signature |
+| Refused on chain | lookalike wallet (1.20), prompt-injection invoice (4.00), replay (1.20) |
+| Mandate now | 0.30 tUSD8 left of a 5.00 daily cap, 4.70 spent today |
+| Evidence | [`docs/EVIDENCE.md`](docs/EVIDENCE.md) — every transaction, generated from the chain |
+
+Settled:
+[`0xe2e1aa1e…93cc531`](https://explorer-test.qday.info/tx/0xe2e1aa1ed4305e460aaa4b5544992e5c324e33cf03d7902c168e0027093cc531) (1.20, auto) ·
+[`0x8f1a3fcb…460eb5`](https://explorer-test.qday.info/tx/0x8f1a3fcb740ce2b8c3830ba34a992f532fd990f5245234ef3ef8606a22460eb5) (3.50, owner co-signed)
+
+Refused:
+[`0xd28af7c2…c786af`](https://explorer-test.qday.info/tx/0xd28af7c2cf8ee0ce43fb9e02762144245d044c0e4585a973c4a723d444c786af) (address mismatch) ·
+[`0x2f97e67e…ced9da`](https://explorer-test.qday.info/tx/0x2f97e67eed83dd11ea6a60e4187b733e4eef92d80d616b184605be8f51ced9da) (prompt injection) ·
+[`0x736d0aa2…36af27`](https://explorer-test.qday.info/tx/0x736d0aa241c50c997c4b1694b51d1d22f589021c14eaaa54607688049136af27) (replay)
+
 
 ## The problem
 

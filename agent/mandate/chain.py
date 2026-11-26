@@ -161,11 +161,25 @@ class Rpc:
             time.sleep(2)
         raise RpcError(f"timeout waiting for {tx_hash}")
 
-    def logs(self, address: str, topics: Sequence[str], from_block: int = 0) -> list[dict]:
-        return self.call(
-            "eth_getLogs",
-            [{"address": address, "topics": list(topics), "fromBlock": hex(from_block), "toBlock": "latest"}],
-        ) or []
+    def logs(
+        self, address: str, topics: Sequence[str], from_block: int = 0, to_block: int | None = None, chunk: int = 900
+    ) -> list[dict]:
+        """Aevum caps eth_getLogs at 1,000 blocks per call, so page through the range."""
+        head = int(self.call("eth_blockNumber"), 16)
+        end = head if to_block is None else to_block
+        out: list[dict] = []
+        cursor = max(0, from_block)
+        while cursor <= end:
+            stop = min(cursor + chunk - 1, end)
+            out.extend(
+                self.call(
+                    "eth_getLogs",
+                    [{"address": address, "topics": list(topics), "fromBlock": hex(cursor), "toBlock": hex(stop)}],
+                )
+                or []
+            )
+            cursor = stop + 1
+        return out
 
 
 # --------------------------------------------------------------------- ABI bits

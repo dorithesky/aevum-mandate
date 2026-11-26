@@ -301,7 +301,7 @@ def build_payload() -> dict:
             "txHash": case["txHash"],
             "updatedAt": case.get("updatedAt"),
         })
-    events = mandate.events(0)
+    events = mandate.events(int(dep.get("deployBlock") or 0))
     return {
         "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "mode": "live",

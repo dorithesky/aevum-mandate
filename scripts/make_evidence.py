@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT / "agent"))
 from mandate import config, cli  # noqa: E402
 from mandate.chain import fmt  # noqa: E402
 from mandate.invoices import REASONS  # noqa: E402
+from eth_utils import to_checksum_address  # noqa: E402
 
 EXPLORER = "https://explorer-test.qday.info"
 
@@ -34,9 +35,10 @@ def main() -> int:
         "| --- | --- |",
         f"| MandateAccount | [`{m['address']}`]({EXPLORER}/address/{m['address']}) |",
         f"| Deploy transaction | [`{dep.get('deployTx')}`]({EXPLORER}/tx/{dep.get('deployTx')}) |",
+        f"| Deploy block | {dep.get('deployBlock')} (gas {dep.get('deployGasUsed')}) |",
         f"| tUSD8 | [`{m['token']}`]({EXPLORER}/address/{m['token']}) |",
-        f"| Owner (human) | `{m['owner']}` |",
-        f"| Agent (hot key) | `{m['agent']}` |",
+        f"| Owner (human) | `{to_checksum_address(m['owner'])}` |",
+        f"| Agent (hot key) | `{to_checksum_address(m['agent'])}` |",
         "",
         "## Mandate at a glance",
         "",

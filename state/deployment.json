@@ -1,7 +1,9 @@
 {
-  "address": "0x8588f58b0608BCF428F804504Ca1343E3e028283",
-  "token": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
-  "deployTx": "0x3d7fbe262b589650591edb446daf083187edf0dd8263e4ff382f6da47a604d88",
-  "deployedAt": "2026-11-26T22:51:20+00:00",
-  "chainId": 44005
+  "address": "0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63",
+  "token": "0x456569838f1d43009a91eba4263147afd7233483",
+  "deployTx": "0xb60375a678d2bab243d9b04f836f258dd14aab28b1f6dcdf9684cb4fc23406bf",
+  "deployedAt": "2026-11-26T22:51:55+00:00",
+  "chainId": 44005,
+  "deployBlock": 4210560,
+  "deployGasUsed": 1421097
 }

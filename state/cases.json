@@ -56,7 +56,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:51 UTC",
+            "detail": "Valid until 2026-12-10 22:52 UTC",
             "code": null
           },
           {
@@ -90,8 +90,8 @@
         ],
         "outcome": "auto_paid"
       },
-      "txHash": "0xbeae399f7198859ae258db73c198f3f0cda2d6119fb540f8334993ca6294831e",
-      "updatedAt": "2026-11-26T22:51:20+00:00"
+      "txHash": "0xe2e1aa1ed4305e460aaa4b5544992e5c324e33cf03d7902c168e0027093cc531",
+      "updatedAt": "2026-11-26T22:52:48+00:00"
     },
     {
       "caseId": "INV-2026-0517",
@@ -149,7 +149,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:51 UTC",
+            "detail": "Valid until 2026-12-10 22:52 UTC",
             "code": null
           },
           {
@@ -183,8 +183,8 @@
         ],
         "outcome": "refused"
       },
-      "txHash": "0xca06750c014998ad8cb17cc80c4a02507e096d18414cd861345bb2f05ead0500",
-      "updatedAt": "2026-11-26T22:51:21+00:00"
+      "txHash": "0xd28af7c2cf8ee0ce43fb9e02762144245d044c0e4585a973c4a723d444c786af",
+      "updatedAt": "2026-11-26T22:53:09+00:00"
     },
     {
       "caseId": "INV-2026-0620",
@@ -242,7 +242,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:51 UTC",
+            "detail": "Valid until 2026-12-10 22:52 UTC",
             "code": null
           },
           {
@@ -276,8 +276,8 @@
         ],
         "outcome": "owner_approved"
       },
-      "txHash": "0xaf90b5b038893c547370d26c7b803c5e0282d2dde87b9f9d19b17db9cd722357",
-      "updatedAt": "2026-11-26T22:51:21+00:00"
+      "txHash": "0x8f1a3fcb740ce2b8c3830ba34a992f532fd990f5245234ef3ef8606a22460eb5",
+      "updatedAt": "2026-11-26T22:53:30+00:00"
     },
     {
       "caseId": "INV-2026-0701",
@@ -335,7 +335,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:51 UTC",
+            "detail": "Valid until 2026-12-10 22:52 UTC",
             "code": null
           },
           {
@@ -369,8 +369,8 @@
         ],
         "outcome": "refused"
       },
-      "txHash": "0x7a03b90d126bc804421e8cbd2e53bc0a1f167d35fe26ce8d0e60e3562ddbba7c",
-      "updatedAt": "2026-11-26T22:51:21+00:00"
+      "txHash": "0x2f97e67eed83dd11ea6a60e4187b733e4eef92d80d616b184605be8f51ced9da",
+      "updatedAt": "2026-11-26T22:53:52+00:00"
     },
     {
       "caseId": "INV-2026-0412-REPLAY",
@@ -428,7 +428,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:51 UTC",
+            "detail": "Valid until 2026-12-10 22:52 UTC",
             "code": null
           },
           {
@@ -462,8 +462,8 @@
         ],
         "outcome": "refused"
       },
-      "txHash": "0xe77cfc11026c2f5a22ba3a16d2cce9a494e4b0b8d3625c858a345444fd6563cb",
-      "updatedAt": "2026-11-26T22:51:21+00:00"
+      "txHash": "0x736d0aa241c50c997c4b1694b51d1d22f589021c14eaaa54607688049136af27",
+      "updatedAt": "2026-11-26T22:54:12+00:00"
     }
   ]
 }
