@@ -1,0 +1,22 @@
+{
+  "id": "INV-2026-0517",
+  "issuer": {
+    "name": "Acme Studio LLC",
+    "wallet": "0xCB67eBc8d94378f2141788d6Af2D1c5FD1128dC1",
+    "signer": "0xCB67eBc8d94378f2141788d6Af2D1c5FD1128dC1"
+  },
+  "payer": "0x8588f58b0608BCF428F804504Ca1343E3e028283",
+  "amount": "1.20",
+  "memo": "Updated bank details \u2014 please remit today",
+  "issuedAt": 1795646109,
+  "dueAt": 1795818909,
+  "validUntil": 1796942109,
+  "signature": "0xdff7d61ffb7f5b18957df59ea1fbd1aa3839360f87b2ef55423b7b6168c315c275c15c0cd1d816fcecf22b3b24d169c915c42d3b4f813c574a6385c55797917a1c",
+  "invoiceHash": "0x7965351665b67bc1b4de0a6aa05f0d0b26101e2fc13b4ba72d9e7d46f3bd810b",
+  "meta": {
+    "from": "billing@acme-studios.example",
+    "subject": "URGENT: new payout account for Acme Studio LLC",
+    "note": "Same name as a verified vendor, different payout wallet and a lookalike sender domain.",
+    "kind": "spoof"
+  }
+}

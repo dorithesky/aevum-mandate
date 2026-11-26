@@ -1,0 +1,22 @@
+{
+  "id": "INV-2026-0620",
+  "issuer": {
+    "name": "Ledger & Co. Accounting",
+    "wallet": "0x29B212e69E77Ae8f2e103b8d8f73485Bf06a1160",
+    "signer": "0x29B212e69E77Ae8f2e103b8d8f73485Bf06a1160"
+  },
+  "payer": "0x8588f58b0608BCF428F804504Ca1343E3e028283",
+  "amount": "3.50",
+  "memo": "Q4 bookkeeping and filing",
+  "issuedAt": 1795646109,
+  "dueAt": 1796596509,
+  "validUntil": 1796942109,
+  "signature": "0x04191bb1ec76b34dac8fb897215658feb727b78b506c27bbff6191d60fdcff5d7fdff82ff7564ecba7c621e97928be77dcca1e178336507d62c71c048f355bea1b",
+  "invoiceHash": "0xeb12a48be63803188bc09134eaab2b57e059b41a1856680e1264512a0959d503",
+  "meta": {
+    "from": "ar@ledgerco.example",
+    "subject": "Invoice INV-2026-0620 \u2014 Q4 bookkeeping",
+    "note": "",
+    "kind": "large"
+  }
+}

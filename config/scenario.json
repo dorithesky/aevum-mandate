@@ -1,0 +1,67 @@
+{
+  "company": "Oakline Studio",
+  "policy": {
+    "perPaymentCap": "4.00",
+    "dailyCap": "5.00",
+    "approvalThreshold": "2.00",
+    "validDays": 30
+  },
+  "funding": "5.00",
+  "beneficiaries": [
+    {"index": 1, "name": "Acme Studio LLC", "wallet": "MERCHANT", "signer": "MERCHANT"},
+    {"index": 2, "name": "Ledger & Co. Accounting", "wallet": "ACCOUNTING", "signer": "ACCOUNTING"}
+  ],
+  "invoices": [
+    {
+      "caseId": "INV-2026-0412",
+      "name": "Acme Studio LLC",
+      "wallet": "MERCHANT",
+      "signer": "MERCHANT",
+      "amount": "1.20",
+      "memo": "November retainer — brand system",
+      "from": "billing@acme-studio.example",
+      "subject": "Invoice INV-2026-0412 — November retainer",
+      "dueInDays": 7,
+      "kind": "invoice"
+    },
+    {
+      "caseId": "INV-2026-0517",
+      "name": "Acme Studio LLC",
+      "wallet": "ATTACKER",
+      "signer": "ATTACKER",
+      "amount": "1.20",
+      "memo": "Updated bank details — please remit today",
+      "from": "billing@acme-studios.example",
+      "subject": "URGENT: new payout account for Acme Studio LLC",
+      "dueInDays": 1,
+      "kind": "spoof",
+      "note": "Same name as a verified vendor, different payout wallet and a lookalike sender domain."
+    },
+    {
+      "caseId": "INV-2026-0620",
+      "name": "Ledger & Co. Accounting",
+      "wallet": "ACCOUNTING",
+      "signer": "ACCOUNTING",
+      "amount": "3.50",
+      "memo": "Q4 bookkeeping and filing",
+      "from": "ar@ledgerco.example",
+      "subject": "Invoice INV-2026-0620 — Q4 bookkeeping",
+      "dueInDays": 10,
+      "kind": "large"
+    },
+    {
+      "caseId": "INV-2026-0412-REPLAY",
+      "invoiceId": "INV-2026-0412",
+      "name": "Acme Studio LLC",
+      "wallet": "MERCHANT",
+      "signer": "MERCHANT",
+      "amount": "1.20",
+      "memo": "November retainer — brand system",
+      "from": "billing@acme-studio.example",
+      "subject": "Invoice INV-2026-0412 — sent again",
+      "dueInDays": 7,
+      "kind": "replay",
+      "note": "The same invoice delivered twice; the id was already settled."
+    }
+  ]
+}

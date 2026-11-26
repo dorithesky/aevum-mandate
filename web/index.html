@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mandate — stablecoin payments your AI agent cannot abuse</title>
+<meta name="description" content="A payment account on QDay Aevum where an AI agent settles invoices only inside on-chain limits, with Confirmation of Payee, spend caps and owner co-signature." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0f14'/%3E%3Cpath d='M9 21V11l7 6 7-6v10' stroke='%233ddc97' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f151d"/><path d="M9 21V11l7 6 7-6v10" stroke="#3ddc97" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="wordmark">Mandate</span>
+    <span class="tag">payments on Aevum</span>
+  </div>
+  <nav>
+    <a href="#desk">Desk</a>
+    <a href="#invoices">Inbox</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#how">How it works</a>
+  </nav>
+  <div class="net">
+    <span class="dot" id="netDot"></span>
+    <span>QDay Aevum · 44005</span>
+    <span class="badge" id="liveBadge">snapshot</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="desk">
+    <p class="eyebrow">Stablecoin invoice desk · tUSD8 on QDay Aevum Testnet</p>
+    <h1>Your assistant pays invoices.<br />Inside limits it cannot rewrite.</h1>
+    <p class="lede">
+      An AI agent settles vendor invoices from a smart account that holds your tUSD8.
+      The mandate — verified payees, per-payment and daily caps, an owner co-signature above the line —
+      is enforced by the contract, not by the agent's good behaviour. Every refusal is an on-chain event too.
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" id="contractLink" target="_blank" rel="noopener">View the contract</a>
+      <a class="btn" href="#how">Read the rules</a>
+      <button class="btn ghost" id="replayAll">Replay the agent</button>
+    </div>
+  </section>
+
+  <section class="stats" id="stats"></section>
+
+  <section class="grid" id="invoices">
+    <div class="col-left">
+      <div class="section-head">
+        <h2>Invoice inbox</h2>
+        <span class="muted" id="inboxCount"></span>
+      </div>
+      <div id="cases" class="cases"></div>
+      <div class="card policy" id="policy"></div>
+    </div>
+    <div class="col-right">
+      <div class="section-head">
+        <h2>Agent run</h2>
+        <span class="muted">preflight checks, then one transaction</span>
+      </div>
+      <div id="agentPanel" class="card agent"></div>
+    </div>
+  </section>
+
+  <section id="evidence" class="evidence">
+    <div class="section-head">
+      <h2>On-chain evidence</h2>
+      <span class="muted" id="chainMeta"></span>
+    </div>
+    <div id="events" class="events"></div>
+  </section>
+
+  <section id="how" class="how">
+    <div class="section-head"><h2>How it works</h2></div>
+    <div class="steps">
+      <article class="step">
+        <span class="num">01</span>
+        <h3>The owner sets the mandate</h3>
+        <p>Fund the account and register each verified payee with the name, the payout wallet and the key that signs their invoices. Caps and the approval line are stored on chain.</p>
+      </article>
+      <article class="step">
+        <span class="num">02</span>
+        <h3>The agent does the paperwork</h3>
+        <p>It verifies the merchant's EIP-712 signature, runs Confirmation of Payee against the registry, checks caps, deadlines, duplicates and the balance — and explains every step before it spends anything.</p>
+      </article>
+      <article class="step">
+        <span class="num">03</span>
+        <h3>The contract has the last word</h3>
+        <p><code>pay()</code> re-runs the same rules on chain. Above the approval line the owner's EIP-712 signature is required, and the mandate tracks the nonce so a co-signature cannot be replayed on a changed amount.</p>
+      </article>
+      <article class="step">
+        <span class="num">04</span>
+        <h3>Refusals are auditable</h3>
+        <p>A blocked invoice is recorded with <code>recordRefusal()</code>: same invoice id, same reason code, on the same chain. An auditor sees what the agent declined, not only what it paid.</p>
+      </article>
+    </div>
+    <div class="threats">
+      <h3>What it stops</h3>
+      <ul>
+        <li><strong>Invoice fraud.</strong> A lookalike invoice with the vendor's name but a new wallet fails Confirmation of Payee.</li>
+        <li><strong>A stolen agent key.</strong> It can only call <code>pay()</code> to verified payees inside the caps — it can never withdraw, add a payee or raise a limit.</li>
+        <li><strong>A compromised invoice.</strong> The owner's co-signature covers invoice id, payee, amount and deadline, so an edited amount invalidates it.</li>
+        <li><strong>Double payment.</strong> Each invoice id settles once, on chain.</li>
+        <li><strong>Runaway spending.</strong> Per-payment cap, daily cap and an optional policy expiry.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Mandate · built for Aevum Builder Challenge #1 · test tokens only, no real value</span>
+  <span id="footerContract" class="mono"></span>
+</footer>
+
+<script src="vendor/ethers.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

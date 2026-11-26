@@ -1,0 +1,537 @@
+{
+  "generatedAt": "2026-11-26T22:35:09+00:00",
+  "network": {
+    "name": "QDay Aevum Testnet",
+    "chainId": 44005,
+    "rpc": "http://127.0.0.1:8545",
+    "explorer": "https://explorer-test.qday.info"
+  },
+  "mandate": {
+    "address": "0x8588f58b0608BCF428F804504Ca1343E3e028283",
+    "owner": "0xf462e0e9525aeaa4298344f55fb75d41a9d90189",
+    "agent": "0xa28bfc39ac193ff33a201086b81fb10da4b08c75",
+    "token": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+    "balance": 300000,
+    "spentToday": 4700000,
+    "remainingToday": 300000,
+    "paused": false,
+    "policy": {
+      "perPaymentCap": 4000000,
+      "dailyCap": 5000000,
+      "approvalThreshold": 2000000,
+      "policyExpiry": 1798324509
+    },
+    "beneficiaries": [
+      {
+        "id": 1,
+        "nameHash": "0x95b94bc3075ac5d4d1413a8891b86f09d9d901ba4bd32a9cd7f20822dd995af3",
+        "wallet": "0x2ac33b8fd64dd9710c985a0e3ef0eec7a04f549e",
+        "signer": "0x2ac33b8fd64dd9710c985a0e3ef0eec7a04f549e",
+        "active": true,
+        "name": "Acme Studio LLC"
+      },
+      {
+        "id": 2,
+        "nameHash": "0x9b9932f036823a41b919eef48cb00c6ab910410215c40f9f16763d4729153e8c",
+        "wallet": "0x29b212e69e77ae8f2e103b8d8f73485bf06a1160",
+        "signer": "0x29b212e69e77ae8f2e103b8d8f73485bf06a1160",
+        "active": true,
+        "name": "Ledger & Co. Accounting"
+      }
+    ]
+  },
+  "company": "Oakline Studio",
+  "cases": [
+    {
+      "id": "INV-2026-0412",
+      "issuer": {
+        "name": "Acme Studio LLC",
+        "wallet": "0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E",
+        "signer": "0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E"
+      },
+      "payer": "0x8588f58b0608BCF428F804504Ca1343E3e028283",
+      "amount": "1.20",
+      "memo": "November retainer \u2014 brand system",
+      "issuedAt": 1795646109,
+      "dueAt": 1796337309,
+      "validUntil": 1796942109,
+      "signature": "0x42a5bbe11a7103df8db6f7ba80819b467420c8ca342e9ea963faaa6800140f604a43f2f73526f711f319c2800901c4b38af69dd3c1f56956a7ee02ad992618bd1c",
+      "invoiceHash": "0xad26dbda40f7b627e7837423e11e2ffc6b42bb3f92f05f76d0c8219bfe184e48",
+      "meta": {
+        "from": "billing@acme-studio.example",
+        "subject": "Invoice INV-2026-0412 \u2014 November retainer",
+        "note": "",
+        "kind": "invoice"
+      },
+      "status": "settled",
+      "decision": {
+        "decision": "pay",
+        "reason": 0,
+        "reasonLabel": "OK",
+        "beneficiaryId": 1,
+        "checks": [
+          {
+            "key": "registered",
+            "label": "Verified payee",
+            "status": "pass",
+            "detail": "Beneficiary #1 \u2014 Acme Studio LLC",
+            "code": null
+          },
+          {
+            "key": "active",
+            "label": "Payee active",
+            "status": "pass",
+            "detail": "Registry entry is active",
+            "code": null
+          },
+          {
+            "key": "name",
+            "label": "Payee name matches",
+            "status": "pass",
+            "detail": "Acme Studio LLC matches the verified name",
+            "code": null
+          },
+          {
+            "key": "address",
+            "label": "Payout address matches",
+            "status": "pass",
+            "detail": "Payout address equals the registered wallet",
+            "code": null
+          },
+          {
+            "key": "signature",
+            "label": "Invoice signature",
+            "status": "pass",
+            "detail": "Signed by 0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E",
+            "code": null
+          },
+          {
+            "key": "duplicate",
+            "label": "Not already paid",
+            "status": "pass",
+            "detail": "Invoice id is unused",
+            "code": null
+          },
+          {
+            "key": "deadline",
+            "label": "Within settlement window",
+            "status": "pass",
+            "detail": "Valid until 2026-12-10 22:35 UTC",
+            "code": null
+          },
+          {
+            "key": "per_tx",
+            "label": "Per-payment cap",
+            "status": "pass",
+            "detail": "1.20 tUSD8 of 4.00 tUSD8 allowed",
+            "code": null
+          },
+          {
+            "key": "daily",
+            "label": "Daily cap",
+            "status": "pass",
+            "detail": "5.00 tUSD8 left of 5.00 tUSD8 today",
+            "code": null
+          },
+          {
+            "key": "balance",
+            "label": "Mandate funded",
+            "status": "pass",
+            "detail": "5.00 tUSD8 available",
+            "code": null
+          },
+          {
+            "key": "approval",
+            "label": "Owner approval",
+            "status": "pass",
+            "detail": "At or below the 2.00 tUSD8 approval line",
+            "code": null
+          }
+        ]
+      },
+      "txHash": "0x5ebcbaaefcaddc6bbae11a6fd650bba68fd99da28b4c13c8cbd4bcc047f5f122",
+      "updatedAt": "2026-11-26T22:35:09+00:00"
+    },
+    {
+      "id": "INV-2026-0517",
+      "issuer": {
+        "name": "Acme Studio LLC",
+        "wallet": "0xCB67eBc8d94378f2141788d6Af2D1c5FD1128dC1",
+        "signer": "0xCB67eBc8d94378f2141788d6Af2D1c5FD1128dC1"
+      },
+      "payer": "0x8588f58b0608BCF428F804504Ca1343E3e028283",
+      "amount": "1.20",
+      "memo": "Updated bank details \u2014 please remit today",
+      "issuedAt": 1795646109,
+      "dueAt": 1795818909,
+      "validUntil": 1796942109,
+      "signature": "0xdff7d61ffb7f5b18957df59ea1fbd1aa3839360f87b2ef55423b7b6168c315c275c15c0cd1d816fcecf22b3b24d169c915c42d3b4f813c574a6385c55797917a1c",
+      "invoiceHash": "0x7965351665b67bc1b4de0a6aa05f0d0b26101e2fc13b4ba72d9e7d46f3bd810b",
+      "meta": {
+        "from": "billing@acme-studios.example",
+        "subject": "URGENT: new payout account for Acme Studio LLC",
+        "note": "Same name as a verified vendor, different payout wallet and a lookalike sender domain.",
+        "kind": "spoof"
+      },
+      "status": "refused",
+      "decision": {
+        "decision": "refuse",
+        "reason": 6,
+        "reasonLabel": "PAYEE_ADDRESS_MISMATCH",
+        "beneficiaryId": 1,
+        "checks": [
+          {
+            "key": "registered",
+            "label": "Verified payee",
+            "status": "pass",
+            "detail": "Beneficiary #1 \u2014 Acme Studio LLC",
+            "code": null
+          },
+          {
+            "key": "active",
+            "label": "Payee active",
+            "status": "pass",
+            "detail": "Registry entry is active",
+            "code": null
+          },
+          {
+            "key": "name",
+            "label": "Payee name matches",
+            "status": "pass",
+            "detail": "Acme Studio LLC matches the verified name",
+            "code": null
+          },
+          {
+            "key": "address",
+            "label": "Payout address matches",
+            "status": "fail",
+            "detail": "Payout address differs from the verified wallet",
+            "code": 6
+          },
+          {
+            "key": "signature",
+            "label": "Invoice signature",
+            "status": "pass",
+            "detail": "Signed by 0xCB67eBc8d94378f2141788d6Af2D1c5FD1128dC1",
+            "code": null
+          },
+          {
+            "key": "duplicate",
+            "label": "Not already paid",
+            "status": "pass",
+            "detail": "Invoice id is unused",
+            "code": null
+          },
+          {
+            "key": "deadline",
+            "label": "Within settlement window",
+            "status": "pass",
+            "detail": "Valid until 2026-12-10 22:35 UTC",
+            "code": null
+          },
+          {
+            "key": "per_tx",
+            "label": "Per-payment cap",
+            "status": "pass",
+            "detail": "1.20 tUSD8 of 4.00 tUSD8 allowed",
+            "code": null
+          },
+          {
+            "key": "daily",
+            "label": "Daily cap",
+            "status": "pass",
+            "detail": "3.80 tUSD8 left of 5.00 tUSD8 today",
+            "code": null
+          },
+          {
+            "key": "balance",
+            "label": "Mandate funded",
+            "status": "pass",
+            "detail": "3.80 tUSD8 available",
+            "code": null
+          },
+          {
+            "key": "approval",
+            "label": "Owner approval",
+            "status": "pass",
+            "detail": "At or below the 2.00 tUSD8 approval line",
+            "code": null
+          }
+        ]
+      },
+      "txHash": "0x1d05f3ffd4c6109fe228387141587950e1767732d09e4c14cfb06c0aee621873",
+      "updatedAt": "2026-11-26T22:35:09+00:00"
+    },
+    {
+      "id": "INV-2026-0620",
+      "issuer": {
+        "name": "Ledger & Co. Accounting",
+        "wallet": "0x29B212e69E77Ae8f2e103b8d8f73485Bf06a1160",
+        "signer": "0x29B212e69E77Ae8f2e103b8d8f73485Bf06a1160"
+      },
+      "payer": "0x8588f58b0608BCF428F804504Ca1343E3e028283",
+      "amount": "3.50",
+      "memo": "Q4 bookkeeping and filing",
+      "issuedAt": 1795646109,
+      "dueAt": 1796596509,
+      "validUntil": 1796942109,
+      "signature": "0x04191bb1ec76b34dac8fb897215658feb727b78b506c27bbff6191d60fdcff5d7fdff82ff7564ecba7c621e97928be77dcca1e178336507d62c71c048f355bea1b",
+      "invoiceHash": "0xeb12a48be63803188bc09134eaab2b57e059b41a1856680e1264512a0959d503",
+      "meta": {
+        "from": "ar@ledgerco.example",
+        "subject": "Invoice INV-2026-0620 \u2014 Q4 bookkeeping",
+        "note": "",
+        "kind": "large"
+      },
+      "status": "settled",
+      "decision": {
+        "decision": "needs_approval",
+        "reason": 11,
+        "reasonLabel": "APPROVAL_REQUIRED",
+        "beneficiaryId": 2,
+        "checks": [
+          {
+            "key": "registered",
+            "label": "Verified payee",
+            "status": "pass",
+            "detail": "Beneficiary #2 \u2014 Ledger & Co. Accounting",
+            "code": null
+          },
+          {
+            "key": "active",
+            "label": "Payee active",
+            "status": "pass",
+            "detail": "Registry entry is active",
+            "code": null
+          },
+          {
+            "key": "name",
+            "label": "Payee name matches",
+            "status": "pass",
+            "detail": "Ledger & Co. Accounting matches the verified name",
+            "code": null
+          },
+          {
+            "key": "address",
+            "label": "Payout address matches",
+            "status": "pass",
+            "detail": "Payout address equals the registered wallet",
+            "code": null
+          },
+          {
+            "key": "signature",
+            "label": "Invoice signature",
+            "status": "pass",
+            "detail": "Signed by 0x29B212e69E77Ae8f2e103b8d8f73485Bf06a1160",
+            "code": null
+          },
+          {
+            "key": "duplicate",
+            "label": "Not already paid",
+            "status": "pass",
+            "detail": "Invoice id is unused",
+            "code": null
+          },
+          {
+            "key": "deadline",
+            "label": "Within settlement window",
+            "status": "pass",
+            "detail": "Valid until 2026-12-10 22:35 UTC",
+            "code": null
+          },
+          {
+            "key": "per_tx",
+            "label": "Per-payment cap",
+            "status": "pass",
+            "detail": "3.50 tUSD8 of 4.00 tUSD8 allowed",
+            "code": null
+          },
+          {
+            "key": "daily",
+            "label": "Daily cap",
+            "status": "pass",
+            "detail": "3.80 tUSD8 left of 5.00 tUSD8 today",
+            "code": null
+          },
+          {
+            "key": "balance",
+            "label": "Mandate funded",
+            "status": "pass",
+            "detail": "3.80 tUSD8 available",
+            "code": null
+          },
+          {
+            "key": "approval",
+            "label": "Owner approval",
+            "status": "warn",
+            "detail": "Above the owner-approval line \u2014 the owner must co-sign",
+            "code": null
+          }
+        ]
+      },
+      "txHash": "0xc17ebc037c3bd843f841458187e788ea38e337d1bca1324df6752c18286e825e",
+      "updatedAt": "2026-11-26T22:35:09+00:00"
+    },
+    {
+      "id": "INV-2026-0412",
+      "issuer": {
+        "name": "Acme Studio LLC",
+        "wallet": "0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E",
+        "signer": "0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E"
+      },
+      "payer": "0x8588f58b0608BCF428F804504Ca1343E3e028283",
+      "amount": "1.20",
+      "memo": "November retainer \u2014 brand system",
+      "issuedAt": 1795646109,
+      "dueAt": 1796337309,
+      "validUntil": 1796942109,
+      "signature": "0x42a5bbe11a7103df8db6f7ba80819b467420c8ca342e9ea963faaa6800140f604a43f2f73526f711f319c2800901c4b38af69dd3c1f56956a7ee02ad992618bd1c",
+      "invoiceHash": "0xad26dbda40f7b627e7837423e11e2ffc6b42bb3f92f05f76d0c8219bfe184e48",
+      "meta": {
+        "from": "billing@acme-studio.example",
+        "subject": "Invoice INV-2026-0412 \u2014 sent again",
+        "note": "The same invoice delivered twice; the id was already settled.",
+        "kind": "replay"
+      },
+      "status": "refused",
+      "decision": {
+        "decision": "refuse",
+        "reason": 7,
+        "reasonLabel": "DUPLICATE_INVOICE",
+        "beneficiaryId": 1,
+        "checks": [
+          {
+            "key": "registered",
+            "label": "Verified payee",
+            "status": "pass",
+            "detail": "Beneficiary #1 \u2014 Acme Studio LLC",
+            "code": null
+          },
+          {
+            "key": "active",
+            "label": "Payee active",
+            "status": "pass",
+            "detail": "Registry entry is active",
+            "code": null
+          },
+          {
+            "key": "name",
+            "label": "Payee name matches",
+            "status": "pass",
+            "detail": "Acme Studio LLC matches the verified name",
+            "code": null
+          },
+          {
+            "key": "address",
+            "label": "Payout address matches",
+            "status": "pass",
+            "detail": "Payout address equals the registered wallet",
+            "code": null
+          },
+          {
+            "key": "signature",
+            "label": "Invoice signature",
+            "status": "pass",
+            "detail": "Signed by 0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E",
+            "code": null
+          },
+          {
+            "key": "duplicate",
+            "label": "Not already paid",
+            "status": "fail",
+            "detail": "Invoice id was already settled",
+            "code": 7
+          },
+          {
+            "key": "deadline",
+            "label": "Within settlement window",
+            "status": "pass",
+            "detail": "Valid until 2026-12-10 22:35 UTC",
+            "code": null
+          },
+          {
+            "key": "per_tx",
+            "label": "Per-payment cap",
+            "status": "pass",
+            "detail": "1.20 tUSD8 of 4.00 tUSD8 allowed",
+            "code": null
+          },
+          {
+            "key": "daily",
+            "label": "Daily cap",
+            "status": "fail",
+            "detail": "1.20 tUSD8 exceeds the 0.30 tUSD8 left today",
+            "code": 10
+          },
+          {
+            "key": "balance",
+            "label": "Mandate funded",
+            "status": "fail",
+            "detail": "Mandate balance is too low",
+            "code": 13
+          },
+          {
+            "key": "approval",
+            "label": "Owner approval",
+            "status": "pass",
+            "detail": "At or below the 2.00 tUSD8 approval line",
+            "code": null
+          }
+        ]
+      },
+      "txHash": "0xc96b5257a2a25ccab6b451125027d4332c4f257ea011e2b415cd7484aea1773d",
+      "updatedAt": "2026-11-26T22:35:09+00:00"
+    }
+  ],
+  "events": [
+    {
+      "type": "settled",
+      "block": 11,
+      "txHash": "0x5ebcbaaefcaddc6bbae11a6fd650bba68fd99da28b4c13c8cbd4bcc047f5f122",
+      "invoiceHash": "0xad26dbda40f7b627e7837423e11e2ffc6b42bb3f92f05f76d0c8219bfe184e48",
+      "beneficiaryId": 1,
+      "payee": "0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E",
+      "amount": 1200000,
+      "approvedByOwner": false,
+      "memoHash": "0x39d99e38ceddc5c81beeb7f88fdc7e067d93f3e1aef9d5b9744a6785cd08e7bf",
+      "dueDate": 1796337309
+    },
+    {
+      "type": "refused",
+      "block": 12,
+      "txHash": "0x1d05f3ffd4c6109fe228387141587950e1767732d09e4c14cfb06c0aee621873",
+      "invoiceHash": "0x7965351665b67bc1b4de0a6aa05f0d0b26101e2fc13b4ba72d9e7d46f3bd810b",
+      "agent": "0xa28bfc39ac193ff33a201086B81Fb10da4B08c75",
+      "reason": 6,
+      "amount": 1200000,
+      "payeeNameHash": "0x95b94bc3075ac5d4d1413a8891b86f09d9d901ba4bd32a9cd7f20822dd995af3"
+    },
+    {
+      "type": "settled",
+      "block": 13,
+      "txHash": "0xc17ebc037c3bd843f841458187e788ea38e337d1bca1324df6752c18286e825e",
+      "invoiceHash": "0xeb12a48be63803188bc09134eaab2b57e059b41a1856680e1264512a0959d503",
+      "beneficiaryId": 2,
+      "payee": "0x29B212e69E77Ae8f2e103b8d8f73485Bf06a1160",
+      "amount": 3500000,
+      "approvedByOwner": true,
+      "memoHash": "0x6ac1d2d606e84df298e996e44d5f52f97de2511ffb729962fc499e0efc941bd1",
+      "dueDate": 1796596509
+    },
+    {
+      "type": "refused",
+      "block": 14,
+      "txHash": "0xc96b5257a2a25ccab6b451125027d4332c4f257ea011e2b415cd7484aea1773d",
+      "invoiceHash": "0xad26dbda40f7b627e7837423e11e2ffc6b42bb3f92f05f76d0c8219bfe184e48",
+      "agent": "0xa28bfc39ac193ff33a201086B81Fb10da4B08c75",
+      "reason": 7,
+      "amount": 1200000,
+      "payeeNameHash": "0x95b94bc3075ac5d4d1413a8891b86f09d9d901ba4bd32a9cd7f20822dd995af3"
+    }
+  ],
+  "totals": {
+    "settled": 2,
+    "refused": 2,
+    "paid": 4700000
+  }
+}
