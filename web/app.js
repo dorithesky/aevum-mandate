@@ -297,7 +297,7 @@ async function liveProbe() {
     const el = document.querySelector('[data-live="balance"]');
     if (el) el.innerHTML = `${fmt(parseInt(bal, 16))}<small>tUSD8</small>`;
     const chip = $("#remainingChip");
-    if (chip) chip.textContent = `${fmt(parseInt(remaining, 16))} tUSD8 left today · live`;
+    if (chip) chip.textContent = `live · ${fmt(parseInt(remaining, 16))} tUSD8 left today`;
     $("#liveBadge").textContent = "live · Aevum RPC";
     $("#liveBadge").classList.add("live");
   } catch (err) {
