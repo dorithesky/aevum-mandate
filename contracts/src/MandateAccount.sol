@@ -57,7 +57,10 @@ contract MandateAccount {
     uint8 public constant REFUSED_INSUFFICIENT_BALANCE = 13;
     uint8 public constant REFUSED_NOT_AGENT = 14;
     // Codes 15+ are used by the agent off chain (invoice signature, expiry,
-    // malformed invoice). They are recorded here so the audit trail is uniform.
+    // malformed invoice). They are recorded here too so the audit trail is uniform.
+    uint8 public constant REFUSED_INVOICE_SIGNATURE = 15;
+    uint8 public constant REFUSED_INVOICE_EXPIRED = 16;
+    uint8 public constant REFUSED_MALFORMED_INVOICE = 17;
 
     /* ------------------------------------------------------------------ */
     /*                              Storage                               */
@@ -289,7 +292,7 @@ contract MandateAccount {
         if (invoiceUsed[p.invoiceId]) return REFUSED_DUPLICATE_INVOICE;
         if (p.amount == 0) return REFUSED_ZERO_AMOUNT;
         if (p.amount > perPaymentCap) return REFUSED_OVER_PER_PAYMENT_CAP;
-        if (p.validUntil != 0 && block.timestamp > p.validUntil) return REFUSED_POLICY_EXPIRED;
+        if (p.validUntil != 0 && block.timestamp > p.validUntil) return REFUSED_INVOICE_EXPIRED;
 
         uint256 spent = spendDay == _today() ? spentToday : 0;
         if (spent + p.amount > dailyCap) return REFUSED_OVER_DAILY_CAP;

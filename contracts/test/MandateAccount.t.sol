@@ -232,7 +232,7 @@ contract MandateAccountTest is Test {
         vm.warp(1_800_000_000);
         MandateAccount.Payment memory p = _payment(merchantId, merchantWallet, MERCHANT_NAME, 1_000_000);
         p.validUntil = block.timestamp - 1;
-        _expectRefused(p, "", mandate.REFUSED_POLICY_EXPIRED());
+        _expectRefused(p, "", mandate.REFUSED_INVOICE_EXPIRED());
     }
 
     function test_PausedBlocksPayments() public {

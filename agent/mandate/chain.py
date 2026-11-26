@@ -92,8 +92,10 @@ class Rpc:
 
     # ----------------------------------------------------------------- writes
     def _fees(self) -> dict:
+        """EIP-1559 fees that fit the chain: Aevum's base fee is a few wei, so a
+        1 gwei tip would overpay by ~100x and drain a faucet drip unnecessarily."""
         base = int(self.block()["baseFeePerGas"], 16)
-        tip = max(1_000_000_000, base // 10)
+        tip = min(1_000_000_000, max(1_000_000, base // 5))
         return {"maxPriorityFeePerGas": tip, "maxFeePerGas": base * 3 + tip}
 
     def send(
@@ -137,7 +139,7 @@ class Rpc:
             base = int(self.block()["baseFeePerGas"], 16)
             legacy = {
                 "data": data, "value": value, "nonce": tx["nonce"],
-                "chainId": CHAIN_ID, "gas": tx["gas"], "gasPrice": base * 2 + 1_000_000_000,
+                "chainId": CHAIN_ID, "gas": tx["gas"], "gasPrice": base * 2 + max(1_000_000, base // 5),
             }
             if to is not None:
                 legacy["to"] = tx["to"]

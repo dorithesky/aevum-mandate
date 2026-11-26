@@ -12,6 +12,7 @@ const REASONS = {
 const S = { data: null, api: false, selected: null, busy: false, timer: null };
 
 const $ = (sel, root = document) => root.querySelector(sel);
+const keyOf = (c) => c.caseId || c.id;
 const fmt = (atomic) => (Number(atomic) / 1e6).toFixed(2);
 const short = (addr) => (addr && addr.length > 12 ? `${addr.slice(0, 6)}…${addr.slice(-4)}` : addr || "—");
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -36,9 +37,9 @@ async function boot() {
   if (!S.data) {
     S.data = await (await fetch("data/run.json", { cache: "no-store" })).json();
   }
-  S.selected = S.data.cases[0]?.caseId || null;
+  S.selected = S.data.cases[0] ? keyOf(S.data.cases[0]) : null;
   const wanted = new URLSearchParams(location.search).get("case");
-  if (wanted && S.data.cases.some((c) => c.caseId === wanted)) S.selected = wanted;
+  if (wanted && S.data.cases.some((c) => keyOf(c) === wanted)) S.selected = wanted;
   render();
   if (new URLSearchParams(location.search).get("replay") === "1") renderPanel(true);
   if (!S.api) liveProbe();
@@ -97,7 +98,7 @@ function renderCases() {
       const st = STATUS[c.status] || STATUS.pending;
       const why = caseWhy(c);
       return `
-      <button class="case ${c.caseId === S.selected ? "active" : ""} ${c.meta?.kind === "spoof" ? "spoof" : ""}" data-case="${esc(c.caseId)}">
+      <button class="case ${keyOf(c) === S.selected ? "active" : ""} ${c.meta?.kind === "spoof" ? "spoof" : ""}" data-case="${esc(keyOf(c))}">
         <div class="case-top">
           <span class="case-subject">${esc(c.meta?.subject || c.id)}</span>
           <span class="chip ${st.cls}">${st.label}</span>
@@ -169,7 +170,7 @@ function renderEvents() {
 function renderPanel(animate = false) {
   const panel = $("#agentPanel");
   if (S.timer) clearTimeout(S.timer);
-  const c = S.data.cases.find((x) => x.caseId === S.selected);
+  const c = S.data.cases.find((x) => keyOf(x) === S.selected);
   if (!c) {
     panel.innerHTML = `<div class="agent-body"><p class="muted">Select an invoice.</p></div>`;
     return;
@@ -245,8 +246,8 @@ function renderActions(c) {
   }
   wrap.innerHTML = parts.join("");
   $("#replayOne").onclick = () => renderPanel(true);
-  if ($("#runBtn")) $("#runBtn").onclick = () => runLive(c.caseId, false);
-  if ($("#approveBtn")) $("#approveBtn").onclick = () => runLive(c.caseId, true);
+  if ($("#runBtn")) $("#runBtn").onclick = () => runLive(keyOf(c), false);
+  if ($("#approveBtn")) $("#approveBtn").onclick = () => runLive(keyOf(c), true);
 }
 
 async function runLive(caseId, approve) {
@@ -293,7 +294,7 @@ async function liveProbe() {
 
 $("#replayAll").addEventListener("click", async () => {
   for (const c of S.data.cases) {
-    S.selected = c.caseId;
+    S.selected = keyOf(c);
     renderCases();
     renderPanel(true);
     await new Promise((r) => setTimeout(r, 1800));
