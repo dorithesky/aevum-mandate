@@ -73,6 +73,14 @@ def test_spoofed_payout_wallet_is_refused():
     assert d["reason"] == 6  # PAYEE_ADDRESS_MISMATCH
 
 
+def test_invoice_signed_by_unregistered_key_is_refused():
+    stranger = Account.create()
+    inv = invoice(signer=MERCHANT.address, key=stranger.key)  # claims the vendor, signed by someone else
+    d = run(inv)
+    assert d["decision"] == "refuse"
+    assert d["reason"] == 15  # INVOICE_SIGNATURE_INVALID
+
+
 def test_unverified_merchant_is_refused():
     other = Account.create()
     inv = Invoice(

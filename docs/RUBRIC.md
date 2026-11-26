@@ -24,7 +24,8 @@ answered, so a judge can check rather than hunt.
 * Every claim in the video is a transaction with a hash and an explorer link
   (`docs/EVIDENCE.md`, generated from the chain).
 * `scripts/local_e2e.py` reproduces the whole flow on anvil with the same code
-  path, so the demo is not a one-off session.
+  path, so the demo is not a one-off session. The script also replays each
+  invoice's decision in the UI (`Replay decision`).
 
 ## 3. Documentation — 10
 
@@ -37,6 +38,10 @@ answered, so a judge can check rather than hunt.
 
 ## 4. Innovation and originality — 20
 
+* Prompt injection is answered structurally: invoice text is data, and the only
+  thing that can move money is `pay()` against a verified wallet inside the caps.
+  The demo includes an invoice whose memo literally says "ignore previous
+  instructions"; it is refused like any other unverified wallet.
 * The usual "AI agent with a wallet" gives the agent a key and trusts it. Here
   the agent key can call exactly two functions, and **refusals are written on
   chain** with the same reason codes as settlements — an audit trail of what

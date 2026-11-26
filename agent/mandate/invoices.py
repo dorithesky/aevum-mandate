@@ -212,17 +212,19 @@ def evaluate(
         else ("Payout address differs from the verified wallet" if name_ok
               else "Payout address is not a verified wallet"), 6)
 
-    # 3. Is the invoice really from that merchant?
+    # 3. Is the invoice signed by the key the owner registered for that payee?
     signer = invoice.recover()
-    expected = (invoice.issuer.get("signer") or "").lower()
-    ok_sig = bool(signer) and signer.lower() == expected and expected != ""
-    add(
-        "signature",
-        "Invoice signature",
-        ok_sig,
-        f"Signed by {signer}" if signer else "No valid EIP-712 signature",
-        15,
-    )
+    expected = (payee["signer"] if payee else "").lower()
+    ok_sig = bool(signer) and expected != "" and signer.lower() == expected
+    if not signer:
+        detail = "No valid EIP-712 signature"
+    elif not expected:
+        detail = f"Signed by {signer}, but no signing key is registered"
+    elif ok_sig:
+        detail = f"Signed by the registered key {signer[:10]}…"
+    else:
+        detail = f"Signed by {signer[:10]}…, not the registered key {expected[:10]}…"
+    add("signature", "Invoice signature", ok_sig, detail, 15)
 
     # 4. Replay and deadline.
     dup = invoice.invoice_hash.lower() in {k.lower() for k in used_invoices}

@@ -88,7 +88,7 @@ def main() -> int:
             print(f"  {case['id']:<22} {case['status']:<10} {case['decision']['reasonLabel']}")
         ok = (
             data["totals"]["settled"] == 2
-            and data["totals"]["refused"] == 2
+            and data["totals"]["refused"] == 3
             and data["mandate"]["balance"] == 300_000
         )
         print("E2E OK" if ok else "E2E MISMATCH")

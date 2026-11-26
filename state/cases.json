@@ -42,7 +42,7 @@
             "key": "signature",
             "label": "Invoice signature",
             "status": "pass",
-            "detail": "Signed by 0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E",
+            "detail": "Signed by the registered key 0x2aC33b8f\u2026",
             "code": null
           },
           {
@@ -56,7 +56,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:48 UTC",
+            "detail": "Valid until 2026-12-10 22:51 UTC",
             "code": null
           },
           {
@@ -90,8 +90,8 @@
         ],
         "outcome": "auto_paid"
       },
-      "txHash": "0x74eb26eb2cdc1af3b1a61df54effca952930414a55e1de98217abe3c68619853",
-      "updatedAt": "2026-11-26T22:48:28+00:00"
+      "txHash": "0xbeae399f7198859ae258db73c198f3f0cda2d6119fb540f8334993ca6294831e",
+      "updatedAt": "2026-11-26T22:51:20+00:00"
     },
     {
       "caseId": "INV-2026-0517",
@@ -134,9 +134,9 @@
           {
             "key": "signature",
             "label": "Invoice signature",
-            "status": "pass",
-            "detail": "Signed by 0xCB67eBc8d94378f2141788d6Af2D1c5FD1128dC1",
-            "code": null
+            "status": "fail",
+            "detail": "Signed by 0xCB67eBc8\u2026, not the registered key 0x2ac33b8f\u2026",
+            "code": 15
           },
           {
             "key": "duplicate",
@@ -149,7 +149,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:48 UTC",
+            "detail": "Valid until 2026-12-10 22:51 UTC",
             "code": null
           },
           {
@@ -184,7 +184,7 @@
         "outcome": "refused"
       },
       "txHash": "0xca06750c014998ad8cb17cc80c4a02507e096d18414cd861345bb2f05ead0500",
-      "updatedAt": "2026-11-26T22:48:28+00:00"
+      "updatedAt": "2026-11-26T22:51:21+00:00"
     },
     {
       "caseId": "INV-2026-0620",
@@ -228,7 +228,7 @@
             "key": "signature",
             "label": "Invoice signature",
             "status": "pass",
-            "detail": "Signed by 0x29B212e69E77Ae8f2e103b8d8f73485Bf06a1160",
+            "detail": "Signed by the registered key 0x29B212e6\u2026",
             "code": null
           },
           {
@@ -242,7 +242,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:48 UTC",
+            "detail": "Valid until 2026-12-10 22:51 UTC",
             "code": null
           },
           {
@@ -276,8 +276,101 @@
         ],
         "outcome": "owner_approved"
       },
-      "txHash": "0x270167ed0bcff121957c0a7e841d6c3d19bffae00fe2d8baf2e4d49bb3f53a7d",
-      "updatedAt": "2026-11-26T22:48:28+00:00"
+      "txHash": "0xaf90b5b038893c547370d26c7b803c5e0282d2dde87b9f9d19b17db9cd722357",
+      "updatedAt": "2026-11-26T22:51:21+00:00"
+    },
+    {
+      "caseId": "INV-2026-0701",
+      "path": "invoices/INV-2026-0701.json",
+      "status": "refused",
+      "decision": {
+        "decision": "refuse",
+        "reason": 6,
+        "reasonLabel": "PAYEE_ADDRESS_MISMATCH",
+        "beneficiaryId": 1,
+        "checks": [
+          {
+            "key": "registered",
+            "label": "Verified payee",
+            "status": "pass",
+            "detail": "Beneficiary #1 \u2014 Acme Studio LLC",
+            "code": null
+          },
+          {
+            "key": "active",
+            "label": "Payee active",
+            "status": "pass",
+            "detail": "Registry entry is active",
+            "code": null
+          },
+          {
+            "key": "name",
+            "label": "Payee name matches",
+            "status": "pass",
+            "detail": "Acme Studio LLC matches the verified name",
+            "code": null
+          },
+          {
+            "key": "address",
+            "label": "Payout address matches",
+            "status": "fail",
+            "detail": "Payout address differs from the verified wallet",
+            "code": 6
+          },
+          {
+            "key": "signature",
+            "label": "Invoice signature",
+            "status": "fail",
+            "detail": "Signed by 0xCB67eBc8\u2026, not the registered key 0x2ac33b8f\u2026",
+            "code": 15
+          },
+          {
+            "key": "duplicate",
+            "label": "Not already paid",
+            "status": "pass",
+            "detail": "Invoice id is unused",
+            "code": null
+          },
+          {
+            "key": "deadline",
+            "label": "Within settlement window",
+            "status": "pass",
+            "detail": "Valid until 2026-12-10 22:51 UTC",
+            "code": null
+          },
+          {
+            "key": "per_tx",
+            "label": "Per-payment cap",
+            "status": "pass",
+            "detail": "4.00 tUSD8 of 4.00 tUSD8 allowed",
+            "code": null
+          },
+          {
+            "key": "daily",
+            "label": "Daily cap",
+            "status": "fail",
+            "detail": "4.00 tUSD8 exceeds the 0.30 tUSD8 left today",
+            "code": 10
+          },
+          {
+            "key": "balance",
+            "label": "Mandate funded",
+            "status": "fail",
+            "detail": "Mandate balance is too low",
+            "code": 13
+          },
+          {
+            "key": "approval",
+            "label": "Owner approval",
+            "status": "warn",
+            "detail": "Above the owner-approval line \u2014 the owner must co-sign",
+            "code": null
+          }
+        ],
+        "outcome": "refused"
+      },
+      "txHash": "0x7a03b90d126bc804421e8cbd2e53bc0a1f167d35fe26ce8d0e60e3562ddbba7c",
+      "updatedAt": "2026-11-26T22:51:21+00:00"
     },
     {
       "caseId": "INV-2026-0412-REPLAY",
@@ -321,7 +414,7 @@
             "key": "signature",
             "label": "Invoice signature",
             "status": "pass",
-            "detail": "Signed by 0x2aC33b8fd64dd9710c985a0e3eF0eeC7A04F549E",
+            "detail": "Signed by the registered key 0x2aC33b8f\u2026",
             "code": null
           },
           {
@@ -335,7 +428,7 @@
             "key": "deadline",
             "label": "Within settlement window",
             "status": "pass",
-            "detail": "Valid until 2026-12-10 22:48 UTC",
+            "detail": "Valid until 2026-12-10 22:51 UTC",
             "code": null
           },
           {
@@ -369,8 +462,8 @@
         ],
         "outcome": "refused"
       },
-      "txHash": "0x2804efd88fa6863c7df83278a0d8ce5395191a03e2bf510403f97b5d3f1f4624",
-      "updatedAt": "2026-11-26T22:48:28+00:00"
+      "txHash": "0xe77cfc11026c2f5a22ba3a16d2cce9a494e4b0b8d3625c858a345444fd6563cb",
+      "updatedAt": "2026-11-26T22:51:21+00:00"
     }
   ]
 }

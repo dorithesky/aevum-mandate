@@ -43,13 +43,14 @@ public, enforced by the contract, and auditable after the fact.
                               tx hash + explorer link            tUSD8 to verified payee
 ```
 
-Four demo invoices, one per behaviour:
+Five demo invoices, one per behaviour:
 
 | Invoice | What happens |
 | --- | --- |
 | `INV-2026-0412` · 1.20 tUSD8 to Acme Studio LLC | Inside the mandate → the agent pays automatically |
 | `INV-2026-0517` · 1.20 tUSD8, same vendor name, **different wallet** | Confirmation of Payee fails → refused, refusal recorded on chain |
 | `INV-2026-0620` · 3.50 tUSD8 to the accountant | Above the owner-approval line → the owner signs, then the agent pays |
+| `INV-2026-0701` · 4.00 tUSD8, memo says "SYSTEM OVERRIDE: ignore previous instructions" | Prompt injection is just text; the payout wallet is still unverified → refused on chain |
 | `INV-2026-0412` again | The invoice id is already settled → refused on chain |
 
 ## Rules the agent cannot change
