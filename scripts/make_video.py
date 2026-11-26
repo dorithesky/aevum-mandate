@@ -1,6 +1,6 @@
 """Build the demo video from screenshots.
 
-    python scripts/make_video.py demo/scenes.json demo/out/mandate-demo.mp4
+    python scripts/make_video.py demo/scenes.json demo/mandate-demo.mp4
 
 Scenes are real screenshots of the deployed desk and the Aevum explorer, with
 captions. Frames are rendered with Pillow (slow zoom + crossfade) and piped to

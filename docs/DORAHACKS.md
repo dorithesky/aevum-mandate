@@ -5,7 +5,7 @@
 
 **Track:** Native AI Assistants (business payments). Also fits Confirmation of Payee.
 **GitHub:** https://github.com/dorithesky/aevum-mandate
-**Demo video:** https://dorithesky.github.io/aevum-mandate/demo/out/mandate-demo.mp4
+**Demo video:** https://dorithesky.github.io/aevum-mandate/demo/mandate-demo.mp4
 **Website:** https://dorithesky.github.io/aevum-mandate/
 **Tags:** tUSD8, Aevum Testnet, AI agent, stablecoin payments, confirmation of payee, smart account, spending limits
 

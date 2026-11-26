@@ -11,7 +11,7 @@ codes as payments, so the audit trail covers what the agent declined.
 
 * **Desk (live, static + on-chain reads):** https://dorithesky.github.io/aevum-mandate/
 * **Contract:** [`0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63`](https://explorer-test.qday.info/address/0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63) on QDay Aevum Testnet
-* **Demo video (75s, captioned):** [mandate-demo.mp4](https://dorithesky.github.io/aevum-mandate/demo/out/mandate-demo.mp4) — or [in the repository](demo/out/mandate-demo.mp4)
+* **Demo video (75s, captioned):** [mandate-demo.mp4](https://dorithesky.github.io/aevum-mandate/demo/mandate-demo.mp4) — or [in the repository](demo/mandate-demo.mp4)
 * **Repository:** https://github.com/dorithesky/aevum-mandate
 
 ## Live on Aevum Testnet
