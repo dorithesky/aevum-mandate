@@ -11,7 +11,7 @@ codes as payments, so the audit trail covers what the agent declined.
 
 * **Desk (live, static + on-chain reads):** https://dorithesky.github.io/aevum-mandate/
 * **Contract:** [`0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63`](https://explorer-test.qday.info/address/0xde333fC2330EadB1F2c51BD2CDFD0713D12E2b63) on QDay Aevum Testnet
-* **Demo video:** [mandate-demo.mp4](https://dorithesky.github.io/aevum-mandate/demo/out/mandate-demo.mp4)
+* **Demo video (75s, captioned):** [mandate-demo.mp4](https://dorithesky.github.io/aevum-mandate/demo/out/mandate-demo.mp4) — or [in the repository](demo/out/mandate-demo.mp4)
 * **Repository:** https://github.com/dorithesky/aevum-mandate
 
 ## Live on Aevum Testnet
@@ -123,7 +123,7 @@ is a real rehearsal, not a mock.
 cp .env.example .env         # owner / agent / merchant keys (testnet only)
 make deploy                  # deploys MandateAccount against tUSD8
 make setup                   # agent role, policy, verified payees, funding
-make invoices                # four EIP-712 signed invoices
+make invoices                # five EIP-712 signed invoices
 make scenario                # run all four through the agent, export web data
 ```
 
@@ -178,7 +178,7 @@ contracts/            MandateAccount.sol + 26 Foundry tests (forge-std vendored)
 agent/mandate/        JSON-RPC client, EIP-712 invoices, policy mirror, CLI
 server/app.py         local demo API (stdlib http.server, no framework)
 web/                  static desk: recorded run, live JSON-RPC reads, replay
-invoices/             four signed demo invoices (public signatures only)
+invoices/             five signed demo invoices (public signatures only)
 docs/                 ARCHITECTURE, SECURITY, EVIDENCE, RUBRIC, DEMO script
 scripts/local_e2e.py  anvil rehearsal of the full flow
 scripts/make_video.py screenshot → captioned demo video
@@ -209,7 +209,8 @@ only as good as the owner's onboarding check.
 ```
 forge test                       26 passed
 pytest agent/tests               13 passed
-python scripts/local_e2e.py      deploy → 2 settled, 2 refused, balances reconciled
+python scripts/local_e2e.py      deploy → 2 settled, 3 refused, balances reconciled
+python scripts/api_smoke.py      GET /api/state + POST /api/run (payments, approval, refusals)
 ```
 
 ## License

@@ -106,6 +106,9 @@ def main(manifest: str, out: str) -> int:
             prev_last, total = frame, total + n
             continue
         src = Image.open(scene["image"])
+        if scene.get("crop"):
+            x, y, w, h = scene["crop"]
+            src = src.crop((x, y, x + w, y + h))
         n = int(scene.get("duration", 5) * FPS)
         zoom0 = scene.get("zoom", 1.0)
         zoom1 = scene.get("zoom", 1.0) + scene.get("zoom_to", 0.035)

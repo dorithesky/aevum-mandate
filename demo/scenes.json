@@ -1,0 +1,88 @@
+[
+ {
+  "kind": "title",
+  "title": "Mandate",
+  "subtitle": "Stablecoin payments your AI agent cannot abuse",
+  "footer": "Aevum Builder Challenge #1  \u00b7  QDay Aevum Testnet  \u00b7  pickle-scout",
+  "duration": 3.2
+ },
+ {
+  "image": "demo/frames/01-hero.png",
+  "label": "The desk",
+  "caption": "Oakline Studio's assistant gets an account with a mandate, not a wallet. 5.00 tUSD8 sit in the contract; the agent key can only call pay().",
+  "duration": 7.5,
+  "zoom": 1.0,
+  "zoom_to": 1.03
+ },
+ {
+  "image": "demo/frames/02-case1.png",
+  "label": "A clean invoice",
+  "caption": "INV-2026-0412 passes all eleven checks: verified name and wallet, valid signature, inside both caps. No approval needed, so the agent settles it.",
+  "duration": 8.0,
+  "zoom": 1.03,
+  "zoom_to": 1.0
+ },
+ {
+  "image": "demo/frames/03-case2.png",
+  "label": "The lookalike",
+  "caption": "Same vendor name, different payout wallet, lookalike sender domain. Confirmation of Payee fails and the refusal is written on chain with reason code 6.",
+  "duration": 8.0,
+  "zoom": 1.0,
+  "zoom_to": 1.03
+ },
+ {
+  "image": "demo/frames/04-case3.png",
+  "label": "Above the line",
+  "caption": "3.50 tUSD8 is above the owner-approval line. The owner's EIP-712 signature covers this exact invoice, amount and nonce, so the agent cannot inflate it.",
+  "duration": 7.5,
+  "zoom": 1.02,
+  "zoom_to": 1.0
+ },
+ {
+  "image": "demo/frames/05-case4.png",
+  "label": "Prompt injection",
+  "caption": "The memo says \"ignore previous instructions\". Invoice text is data: the payout wallet is still unverified, so nothing moves, and the attempt is on chain.",
+  "duration": 8.0,
+  "zoom": 1.0,
+  "zoom_to": 1.03
+ },
+ {
+  "image": "demo/frames/06-evidence.png",
+  "label": "Evidence",
+  "caption": "Five events on Aevum: two settlements and three refusals. An auditor sees what the agent declined, not only what it paid.",
+  "duration": 7.5,
+  "zoom": 1.03,
+  "zoom_to": 1.0
+ },
+ {
+  "image": "demo/frames/07-txs.png",
+  "label": "On Aevum",
+  "caption": "Ten transactions from one agent key: policy, payees, two settlements, three refusals. There is no function that lets it withdraw or add a payee.",
+  "duration": 7.0,
+  "zoom": 1.0,
+  "zoom_to": 1.03
+ },
+ {
+  "image": "demo/frames/08-settled.png",
+  "label": "A settlement",
+  "caption": "3.5 tUSD8 to the accountant's verified wallet, status Success, fee 0.00000015 tQDAY. Real tUSD8 on QDay Aevum Testnet.",
+  "duration": 6.5,
+  "zoom": 1.02,
+  "zoom_to": 1.0
+ },
+ {
+  "image": "demo/frames/09-refusal.png",
+  "label": "A refusal",
+  "caption": "Same agent, 27,412 gas, no token transfer: the refusal itself is the transaction. That is the audit trail a finance team needs.",
+  "duration": 6.5,
+  "zoom": 1.0,
+  "zoom_to": 1.03
+ },
+ {
+  "kind": "title",
+  "title": "Mandate",
+  "subtitle": "A mandate, not a wallet.",
+  "footer": "github.com/dorithesky/aevum-mandate  \u00b7  contract 0xde33\u20262b63  \u00b7  test tokens only",
+  "duration": 5.0
+ }
+]
